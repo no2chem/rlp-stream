@@ -6,7 +6,7 @@ before_script:
 - npm install -g typescript gts typedoc
 cache: yarn
 before_deploy:
-- npm typedoc
+- npm run typedoc
 - npm pack
 deploy:
 - provider: pages
