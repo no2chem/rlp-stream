@@ -1,0 +1,51 @@
+{
+  "name": "rlp-stream",
+  "version": "0.1.0",
+  "description": "Stream-based RLP (recursive length prefix) encoder/decoder",
+  "main": "build/src/rlp-stream.js",
+  "types": "build/src/rlp-stream.d.js",
+  "scripts": {
+    "test": "mocha -r ts-node/register src/**/*.spec.ts --timeout 20000",
+    "check": "gts check",
+    "clean": "gts clean",
+    "compile": "tsc -p .",
+    "fix": "gts fix",
+    "prepare": "npm run compile",
+    "pretest": "npm run compile",
+    "posttest": "npm run check",
+    "typedoc": "typedoc --out docs $(pwd)/src --target es6 --mode file --tsconfig ./tsconfig.json --excludePrivate --excludeProtected --exclude **/*.spec.ts"
+  },
+  "bugs": {
+    "url": "https://github.com/no2chem/rlp-stream/issues"
+  },
+  "homepage": "https://github.com/no2chem/rlp-stream/",
+  "keywords": [
+    "recurisve length prefix",
+    "rlp",
+    "ethereum"
+  ],
+  "author": {
+    "name": "Michael Wei"
+  },
+  "pre-commit": [
+    "check",
+    "test"
+  ],
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "@types/chai": "^4.1.2",
+    "@types/mocha": "^2.2.48",
+    "chai": "^4.1.2",
+    "gts": "^0.5.3",
+    "mocha": "^5.0.1",
+    "pre-commit": "^1.2.2",
+    "ts-node": "^7.0.0",
+    "typedoc": "^0.10.0",
+    "typescript": "~2.8.3",
+    "@types/node": "^10.5.1",
+    "async-chunks": "^1.1.0"
+  },
+  "dependencies": {
+    "rlp": "^2.0.0"
+  }
+}
