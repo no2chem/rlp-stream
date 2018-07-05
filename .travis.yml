@@ -1,35 +1,39 @@
 language: node_js
 node_js:
-  - "node"
-  - "lts/*"
+- node
+- lts/*
 before_script:
-  - npm install -g typescript gts typedoc
+- npm install -g typescript gts typedoc
 cache: yarn
 before_deploy:
-  - npm typedoc
-  - npm pack
+- npm typedoc
+- npm pack
 deploy:
-  - provider: pages
-    skip-cleanup: true
-    github-token: $GITHUB_TOKEN
-    keep-history: true
-    local_dir: docs
-    committer-from-gh: true
-    on:
-      branch: master
-      node: "node"
-  - provider: releases
-    api_key: $GITHUB_TOKEN
-    file_glob: true
-    file: "soss-*.tgz"
-    skip_cleanup: true
-    on:
-      branch: master
-      node: "node"
-      tags: true
-  - provider: npm
-    api_key: $NPM_TOKEN
-    skip_cleanup: true
-    email: "mwei@cs.ucsd.edu"
-    on:
-      tags: true
+- provider: pages
+  skip-cleanup: true
+  github-token: "$GITHUB_TOKEN"
+  keep-history: true
+  local_dir: docs
+  committer-from-gh: true
+  on:
+    branch: master
+    node: node
+- provider: releases
+  api_key: "$GITHUB_TOKEN"
+  file_glob: true
+  file: rlp-stream-*.tgz
+  skip_cleanup: true
+  on:
+    branch: master
+    node: node
+    tags: true
+- provider: npm
+  api_key: "$NPM_TOKEN"
+  skip_cleanup: true
+  email: mwei@cs.ucsd.edu
+  on:
+    tags: true
+env:
+  global:
+  - secure: p7xcXCl/W5xlbT56XM/AUPBHmgQvjwdak2Wfx8tYFA6/9TaPGQPysgYHk0KTaaWvsxRTBrwAbehRToYMkhi/dbSCouebpc8EYlb3+COV73K0ptN/qrNZ5poCWx+MwrSRCxAYIC7E7Cxv+PqjedbuTiKiQL8t9VLwzWNICRqNC4PsR3gjKibu6pW3QRLc0V4jbx1/zOpzdj8ARRaNW2+wakVBEqFegU3wEsisNnQqfjpY4NDzqERiSk1H5ndXQQkVvomBhOU7SLyZPVJRZWohUt0NKxJi5mgO5d+U9BlRy8HBWbihYJBnQJuHLR+EbRUzxogp6J/1HmFNZplRJhP5reQI7vy6KllffXnQq81e2zFUw1sGwXMQ02xxt2rKtnKCtRmIczSnwz1KLSD3TS/nNHqamFMTTnRPZS9vwuh7RIgYUpaILsUhbpnekb/HK0Z1pAotCPNsaM8OP5RYoiLzTBCeQ2Y2w9XjnOmZcnyrwx/HaSpq55MY5cdFxYw438Zm78qFjmfnCTzbPEuEb76Efz8LVFzbzRVwknmLGIY0HdWgXy2JbHw/a3o3VqX54Vr7VyI7ih4UBA8W2KQYy/EoOHVD1ZIv2MKmhIvs26OaQYKrXnhpE10PqbTEb19HRBZ8GjXRGTRa0XKqW32lufU78HevDca5U/sD/7xgWGS2T4s=
+  - secure: QPcRlpCGodLc/EW4phwIJ+hWa5WvApgVQsw86itbrA0CQwpDcHQP6DuinfmNPMON3Prlf/KDDQqE9qOH3VSX0m1OKynTdFwX5N3N6bhOcMDlrf4/TdH322cJre/UcYK9QPBNm9Pk2PLUExVWf0xKAobnKtnmaERpAwfWU9rL91sbPW+uXm+mB1h+59n3iVcm4ZXjIYahPwrNCWCbRhAX81lWK2iFDiRK9+v2dB9CoSy/XtBSFDmFZ/EKlR8hC/qNl7I1f+a4duaatrxQ8N5Q+QfFxtKExHhGaznB5exisH+3/vhKlwSGbV8KFKjCXc/FUkbH1VmwSZD8+ObAyaM5aT/IVhxqBKxzYiofldGlhp+0OM0WL8REg6kYkweixfaFVScsEBfGXFSnI5aKCvDpIhCtuWxtB3BqgbN9z+O0R7QceHrlhajv3oofSVsFzqqYW/rOO+usTVPE0B7RGdkDPXlvK6IMU/mmtBFpxrZCLC+l9rTb9d8cJveIngUZFpmv2hOupHuBeOLo9f2YWLOsgx6ruwp8kRtfXkmEJX80KWo5rAzlvRGUTPdwFHFFrB8l/6wsvB/Q/4i07d7TXYJ0IuZb8+CyA9Am0hmVrPxyC/G13y7ND8KVQnA21vwuj7mXUFEmVj205mBlAvySJXx32B7EvJLlXSrvnCCLAz0PYKA=
