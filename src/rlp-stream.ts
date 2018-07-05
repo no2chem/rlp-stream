@@ -283,9 +283,9 @@ export class RlpDecoderTransform extends BufferedTransform<RlpItem> {
 }
 
 /**
- * An RLP (Recursive Length Prefix) transform, which encodes RLPItems and encodes them
- * according to the RLP serialization format used by Ethereum and as specified
- * in the Yellow Paper (yellowpaper.io).
+ * An RLP (Recursive Length Prefix) transform, which encodes RLPItems and
+ * encodes them according to the RLP serialization format used by Ethereum and
+ * as specified in the Yellow Paper (yellowpaper.io).
  */
 export class RlpEncoderTransform extends Transform {
   constructor() {
@@ -299,14 +299,16 @@ export class RlpEncoderTransform extends Transform {
   }
 }
 
-/** Encodes the given RLP list into a RLP-encoded buffer.
+/**
+ * Encodes the given RLP list into a RLP-encoded buffer.
  *  @param {data}      The data to encode.
  */
 export function RlpEncode(data: RlpItem): Buffer {
   return rlp.encode(data);
 }
 
-/** Decodes the given Buffer into a RlpItem.
+/**
+ * Decodes the given Buffer into a RlpItem.
  *  @param {data}      The data to encode.
  */
 export function RlpDecode(data: Buffer): RlpItem {
